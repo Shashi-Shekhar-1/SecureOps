@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SecureOps</title>
+<link rel="stylesheet" href="pulse.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="logo">SecureOps</div>
+    <div class="nav-item active" onclick="goHome(this)">🏭 Factory</div>
+    <div class="nav-item" onclick="goHome(this)">📊 Dashboard</div>
+    <div class="nav-item" onclick="goHome(this)">🔔 Alerts</div>
+    <div class="nav-item" onclick="goHome(this)">🔍 Search</div>
+    <div class="nav-item" onclick="goHome(this)">📅 Maintenance</div>
+    <div class="nav-item" onclick="goHome(this)">⚙️ Settings</div>
+
+<!-- ===== EMERGENCY PANEL ===== -->
+    <div class="emergency-box">
+        <h3>🚨 Emergency</h3>
+        <p><b>Control Room:</b><br> +91 9142060041</p>
+        <p><b>Safety Officer:</b><br> +91 9801527929</p>
+        <p><b>Fire:</b> 101</p>
+        <p><b>Ambulance:</b> 108</p>
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<header>
+<h3>Industrial Monitoring</h3>
+<span>Live System</span>
+</header>
+
+<div class="content">
+
+<!-- ===== FACTORY OVERVIEW ===== -->
+<div id="floors">
+
+<h2>🏭 Factory Overview</h2>
+
+<div class="metrics">
+
+<div class="metric-box">
+🌡 Avg Temp<br><b id="factoryTemp">--</b>
+</div>
+
+<div class="metric-box">
+🧪 Gas Level<br><b id="factoryGas">--</b>
+</div>
+
+<div class="metric-box">
+⚙ Total Machines<br><b id="totalMachines">--</b>
+</div>
+
+<div class="metric-box">
+✅ Active Machines<br><b id="activeMachines">--</b>
+</div>
+
+<div class="metric-box">
+🔌 Factory Power<br>
+<button class="power-btn" onclick="toggleFactoryPower()">ON</button>
+</div>
+
+</div>
+
+<h2>Select Floor</h2>
+<div id="floorGrid" class="grid"></div>
+
+</div>
+
+<!-- ROOMS -->
+<div id="rooms" class="hidden">
+<button class="top-back" onclick="backToFloors()">⬅</button>
+<h2 id="floorTitle"></h2>
+<div id="roomList" class="grid"></div>
+</div>
+
+<!-- MACHINES -->
+<div id="machines" class="hidden">
+<button class="top-back" onclick="backToRooms()">⬅</button>
+<h2 id="roomTitle"></h2>
+<div id="machineList" class="grid"></div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+<button class="top-back" onclick="backToMachines()">⬅</button>
+
+<h2 id="machineTitle"></h2>
+
+<div class="panel">
+<h3>Status: <span id="machineState">Running</span></h3>
+<button class="power-btn" onclick="togglePower()">Power ON/OFF</button>
+</div>
+
+<div class="metrics">
+<div class="metric-box">⚡ Voltage<br><b id="voltage"></b></div>
+<div class="metric-box">🌀 Vibration<br><b id="vibration"></b></div>
+<div class="metric-box">⏱ Runtime<br><b id="runtime"></b></div>
+<div class="metric-box">🧠 Health<br><b id="health"></b></div>
+</div>
+
+<div class="panel">
+<h3>Temperature</h3>
+<canvas id="tempChart"></canvas>
+</div>
+
+<div class="panel">
+<h3>Gas Level</h3>
+<canvas id="gasChart"></canvas>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script src="pulse.jsx"></script>
+</body>
+</html>
